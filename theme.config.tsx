@@ -1,8 +1,17 @@
 import React from 'react'
 import { DocsThemeConfig } from 'nextra-theme-docs'
+import Image from 'next/image'
+import logo from './public/logo.png'
 
 const config: DocsThemeConfig = {
-  logo: <span>analista101</span>,
+  logo: () => (
+    <Image
+      src={logo}
+      alt="Logo"
+      width={135}
+      height={50}
+    />
+  ),
   project: {
     link: 'https://github.com/amerta-io/analista101',
   },
