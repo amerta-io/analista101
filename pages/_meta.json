@@ -1,15 +1,30 @@
 {
+  "*": {
+    "theme": {
+      "footer": false
+    }
+  },
   "index": "Get Started",
-  "another": "Another Page",
+  "tutorial-analista": "Tutorial Analista",
   "advanced": "Advanced (A Folder)",
   "about": {
     "title": "About",
     "type": "page"
   },
   "contact": {
-    "title": "Contact ↗",
-    "type": "page",
-    "href": "https://instagram.com/dataatunsoed",
-    "newWindow": true
+    "title": "Contact",
+    "type": "menu",
+    "items": {
+      "official": {
+        "title": "IG Official",
+        "href": "https://instagram.com/dataatunsoed",
+        "newWindow": true
+      },
+      "internal": {
+        "title": "IG Internal",
+        "href": "https://instagram.com/sukasukarisdat",
+        "newWindow": true
+      }
+    }
   }
 }

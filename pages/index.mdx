@@ -2,7 +2,13 @@
  
 analista101 adalah sebuah platform yang menyediakan tutorial, tips, dan trik seputar analisis data. Platform ini dibuat dengan tujuan untuk membantu teman-teman analista apabila sedang mengalami kesulitan dalam menganalisis data.
 
-## Cara Berkontribusi
+## Cara Kontribusi Halaman
+
+- Tentukan halaman yang ingin direvisi
+- Jika mau melaporkan adanya bug bisa klik tombol ```Question? Give us feedback →``` di kanan layar.
+- Jika mau mengedit halaman klik tombol ```Edit this page``` di kanan layar.
+
+## Cara Kontribusi Project
 
 1. Fork repository ini
 2. Clone repository yang sudah di-fork
@@ -15,12 +21,44 @@ analista101 adalah sebuah platform yang menyediakan tutorial, tips, dan trik sep
 
 ## Cara Menjalankan Project
 
-```bash
-# install dependencies
-$ npm install # or pnpm install or bun install
-```
+import { Tabs } from 'nextra/components'
+
+Install dependencies
+
+<Tabs items={['pnpm', 'npm', 'bun']}>
+  <Tabs.Tab>
+    ```bash copy
+    pnpm install
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```bash copy
+    npm install
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```bash copy
+    bun install
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+Jalankan project dan buka localhost:3000
     
-```bash
-# serve with hot reload at localhost:3000
-$ npm run dev # or pnpm run dev or bun dev
-```
+<Tabs items={['pnpm', 'npm', 'bun']}>
+  <Tabs.Tab>
+    ```bash copy
+    pnpm run dev
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```bash copy
+    npm run dev
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```bash copy
+    bun run dev
+    ```
+  </Tabs.Tab>
+</Tabs>
