@@ -1,5 +1,70 @@
-# Satori
+# Pengerjaan
 
-Satori (悟り) is a Japanese Buddhist term for awakening, "comprehension; understanding".
+import { Steps } from 'nextra/components'
+import Image from 'next/image'
+import pivotTable from '../../public/pengerjaan/pivot-table.jpeg'
+import dragNDrop from '../../public/pengerjaan/dragndrop.jpeg'
+import penentuanChart from '../../public/pengerjaan/penentuan-chart.jpeg'
+import kustomisasiChart from '../../public/pengerjaan/kustomisasi-chart.jpeg'
+import { GiChessKing } from 'react-icons/gi'
 
-19:44
+<Steps>
+
+### Rencana
+
+Pengerjaan sesuai dengan pembagian tugas tadi. Ambil contoh Sasa yang memegang tipe pertanyaan **pilih satu** dan pada form survei menanyakan **fakultas** apa yang diambil. Sasa akan membuat pivot table untuk menghitung jumlah mahasiswa yang mengambil fakultas tertentu.
+
+<div style={{ textAlign: 'center' }}>
+    <Image src={pivotTable} alt="pivot-table" style={{ borderRadius: 10, marginTop: 10 }} />
+    <p style={{ marginTop: '10px', fontSize: '12px', opacity: '0.5' }}>Gambar 3. Pilih menu ```Insert``` lalu klik ```Pivot Table```</p>
+</div>
+
+### Pivot Table
+
+Setelah membuat sheet pivot table, Sasa akan memilih kolom fakultas dan nama. Kemudian, Sasa akan memasukkan kolom **fakultas** ke dalam **Rows** dan kolom **nama** ke dalam **Values** dengan cara *drag n drop*. 
+
+Perhatikan kembali, fakultas adalah **objek** yang sifatnya kategorikal (ada FT, FH, FEB) dan nama adalah **subjek** yang sifatnya numerikal (jumlah mahasiswa di FT sekian). Maka, Excel akan menghitung jumlah mahasiswa yang mengambil fakultas tertentu.
+
+<div style={{ textAlign: 'center' }}>
+    <Image src={dragNDrop} alt="dragndrop" style={{ borderRadius: 10, marginTop: 10 }} />
+    <p style={{ marginTop: '10px', fontSize: '12px', opacity: '0.5' }}>Gambar 4. *Drag n drop* kolom fakultas ke dalam **Rows** dan kolom nama ke dalam **Values**</p>
+</div>
+
+### Menentukan Chart
+
+Dalam kasus ini, khusus untuk pertanyaan fakultas maka chart yang cocok adalah **vertical bar** atau nama lainnya **clustered column**.
+
+Cara membuatnya dengan pilih menu ```Insert```, lalu klik ```Recommended Charts```. Pilih **Clustered Column** dan klik OK.
+
+<div style={{ textAlign: 'center' }}>
+    <Image src={penentuanChart} alt="penentuan-chart" style={{ borderRadius: 10, marginTop: 10 }} />
+    <p style={{ marginTop: '10px', fontSize: '12px', opacity: '0.5' }}>Gambar 5. Menampilkan Vertical Bar Chart</p>
+</div>
+
+### Kustomisasi Chart
+
+Karena chart ini akan digunakan untuk dokumen analisis survei ke Infografis, maka kita perlu memperbaiki label pada pivot table, mengubah judul dan tema (yang ada angkanya pada shape chart) pada chart agar memudahkan pembacaan.
+
+<div style={{ textAlign: 'center' }}>
+    <Image src={kustomisasiChart} alt="kustomisasi-chart" style={{ borderRadius: 10, marginTop: 10 }} />
+    <p style={{ marginTop: '10px', fontSize: '12px', opacity: '0.5' }}>Gambar 6. Mengubah Tampilan Chart</p>
+</div>
+
+### Screenshot Pivot Table dan Chart
+
+Screenshot lalu masukkan ke dalam dokumen analisis survei yang sudah dibuat oleh <span style={{ display: "inline-flex", alignItems: "center" }}><GiChessKing />Kadit</span>.
+
+Struktur dokumen analisis survei adalah sebagai berikut:
+1. Daftar Isi
+2. List Poin Pertanyaan
+3. Kesimpulan
+
+Judul poin pertanyaan jangan ```raw``` langsung pertanyaan, tetapi diubah menjadi ```kalimat informasi```. Misal pertanyaan "Apa saja fasilitas fisik Unsoed yang kamu ketahui?" diubah menjadi "Fasilitas fisik Unsoed yang diketahui responden".
+
+<div style={{ textAlign: 'center' }}>
+    <iframe style={{ marginTop: "14px", borderRadius: "10px", width: "100%", maxWidth: "830px", height: "800px" }} src="https://docs.google.com/document/d/e/2PACX-1vRdPt8H8UlADEXshpx2lYZAwaciAByW6tKeEL7HIGlk6rLWMrfXYFgZrVuzZfTIrA/pub?embedded=true"></iframe>
+    <a style={{ marginTop: '10px', fontSize: '12px', opacity: '0.5' }} href="">Dok. Analisis Survei Fasilitas Unsoed 2023</a>
+</div>
+
+
+</Steps>

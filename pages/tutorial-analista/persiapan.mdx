@@ -7,6 +7,7 @@ import ambilDataKeSheet from '../../public/persiapan/ambil-data-ke-sheet.jpeg'
 import { IoIosCheckbox, IoMdRadioButtonOn } from 'react-icons/io'
 import { FaPython, FaBalanceScale } from 'react-icons/fa'
 import { Callout, Cards, Card } from 'nextra-theme-docs'
+import { GiChessKing } from 'react-icons/gi'
 
 <Steps>
 ### Protect Form
@@ -25,11 +26,11 @@ Ketika waktu yang ditentukan telah habis, maka form akan kita **tutup** dan tida
     <p style={{ marginTop: '10px', fontSize: '12px', opacity: '0.5' }}>Gambar 2. Data tersimpan di Google Sheet</p>
 </div>
  
-Dari survei yang telah diisi, kita akan mengambil data tersebut ke dalam **Sheet**, bebas mau pake Google Sheet atau Microsoft Excel. 
+Dari survei yang telah diisi, kita akan mengambil data tersebut ke dalam **Sheet**, bebas mau pake Google Sheet atau Microsoft Excel. Tetapi disarankan menggunakan Microsoft Excel karena ketika terdapat data yang ```blank``` bisa filter untuk dihapus, sementara Google Sheet tidak bisa. Oleh karena itu, download data dari Google Sheet ke dalam Excel.
 
 ### Pembagian Tugas
 
-Kadit menyiapkan dokumen **Pembagian Tugas** untuk membagi tugas. Dokumen ini akan di share ke grup WA. Format pembagian tugas bisa dilihat di bawah ini.
+<span style={{ display: "inline-flex", alignItems: "center" }}><GiChessKing />Kadit</span> menyiapkan dokumen **Pembagian Tugas** untuk membagi tugas. Dokumen ini akan di share ke grup WA. Format pembagian tugas bisa dilihat di bawah ini.
 
 <table style={{ marginTop: 14 }}>
     <thead>
@@ -78,10 +79,10 @@ Misal analista ada 4 orang, berarti pembagian tugas bisa dilakukan seperti ini:
 - Jehian memegang tipe pertanyaan **Terbuka/Isian**
 - Luthfi memegang tipe pertanyaan **Skala**
 
-**note: ini hanya contoh, sesuaikan lagi dengan pertanyaan pada form survei.*
+**note: ini cuman contoh, sesuaiin lagi sama pertanyaan yang ada di form survei.*
 
 <Callout type="warning" emoji="⚠️">
-  Jangan lupa untuk memberi kesimpulan (dipegang oleh salah satu orang) dari hasil analisis yang telah dilakukan.
+  Jangan lupa untuk dikasih kesimpulan (yang megang salah satu orang) dari hasil analisis yang telah dilakukan.
 </Callout>
 
 </Steps>
