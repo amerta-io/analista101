@@ -1,7 +1,7 @@
 # Persiapan
 
 import { Steps } from 'nextra/components'
-import Image from 'next/image'
+import ImageWithCaption from '../../components/ImageWithCaption'
 import protectForm from '../../public/persiapan/protect-form.jpeg'
 import ambilDataKeSheet from '../../public/persiapan/ambil-data-ke-sheet.jpeg'
 import { IoIosCheckbox, IoMdRadioButtonOn } from 'react-icons/io'
@@ -12,21 +12,27 @@ import { GiChessKing } from 'react-icons/gi'
 <Steps>
 ### Protect Form
  
-<div style={{ textAlign: 'center' }}>
-    <Image src={protectForm} alt="protect-form" style={{ borderRadius: 10, marginTop: 10 }} />
-    <p style={{ marginTop: '10px', fontSize: '12px', opacity: '0.5' }}>Gambar 1. Menutup Form Survei Fasilitas Unsoed 2023</p>
-</div>
+<ImageWithCaption
+  src={protectForm}
+  alt="protect-form"
+  caption="Gambar 1. Menutup Form Survei Fasilitas Unsoed 2023"
+/>
 
 Ketika waktu yang ditentukan telah habis, maka form akan kita **tutup** dan tidak bisa diakses lagi. Jika ada **extend** waktu, maka form akan kita buka kembali.
  
 ### Ambil Data ke Sheet
 
-<div style={{ textAlign: 'center' }}>
-    <Image src={ambilDataKeSheet} alt="ambil-data-ke-sheet" style={{ borderRadius: 10, marginTop: 10 }} />
-    <p style={{ marginTop: '10px', fontSize: '12px', opacity: '0.5' }}>Gambar 2. Data tersimpan di Google Sheet</p>
-</div>
+<ImageWithCaption
+  src={ambilDataKeSheet}
+  alt="ambil-data-ke-sheet"
+  caption="Gambar 2. Data Tersimpan di Sheet"
+/>
  
 Dari survei yang telah diisi, kita akan mengambil data tersebut ke dalam **Sheet**, bebas mau pake Google Sheet atau Microsoft Excel. Tetapi disarankan menggunakan Microsoft Excel karena ketika terdapat data yang ```blank``` bisa filter untuk dihapus, sementara Google Sheet tidak bisa. Oleh karena itu, download data dari Google Sheet ke dalam Excel.
+
+<Callout type="warning" emoji="⚠️">
+  Chart yang ada di Google Form jangan dijadikan acuan data, karena pada beberapa pilihan jawaban ada kata yang sama, misal "Ruang Kelas" dan "Fasilitas di Ruang Kelas".
+</Callout>
 
 ### Pembagian Tugas
 

@@ -1,3 +1,88 @@
-# Satori
+# Code in Action
 
-Satori (悟り) is a Japanese Buddhist term for awakening, "comprehension; understanding".
+import { Steps } from 'nextra/components'
+import ImageWithCaption from '../../components/ImageWithCaption'
+import wordCloud from '../../public/code/wordcloud.png'
+import barChart from '../../public/code/chart.png'
+import GistEmbed from '../../components/GistEmbed'
+
+<Steps>
+
+### Siapkan Jawaban dari Pertanyaan Terbuka/Isian
+
+Copy paste pada notepad lalu simpan. Upload ke folder content di Google Colab.
+
+### Text Preprocessing
+
+<GistEmbed gistId="sendomoka/8437d9a49473a661c02e1276d6716278" />
+
+```python copy
+import re
+from collections import Counter
+import matplotlib.pyplot as plt
+from wordcloud import WordCloud
+
+# Fungsi untuk pembersihan teks
+def preprocess_text(text):
+    # Menghilangkan ordered list dengan format "1., "2., dll.
+    text = re.sub(r'"\d+\.', '', text)
+    text = re.sub(r'\d+\.', '', text)
+    # Menghilangkan simbol
+    text = re.sub(r'[^\w\s]', '', text)
+    # Menghilangkan baris baru dan menggantinya dengan spasi
+    text = re.sub(r'\s+', ' ', text)
+    # Mengubah semua teks menjadi lowercase
+    text = text.lower()
+    return text
+
+# Path default untuk file input dan output
+input_path = '/content/input.txt' # Sesuaikan dengan lokasi file input Anda
+output_path = '/content/output.txt' # Sesuaikan dengan lokasi file output Anda
+
+# Membaca teks dari file input
+with open(input_path, 'r', encoding='utf-8') as file:
+    text = file.read()
+
+# Memproses teks
+processed_text = preprocess_text(text)
+
+# Menghilangkan kata tertentu dari teks
+stop_words = {"yang", "di", "dan", "untuk"}
+words = processed_text.split()
+filtered_words = [word for word in words if word not in stop_words]
+
+# Menghitung frekuensi kata
+word_counts = Counter(filtered_words)
+most_common_words = word_counts.most_common(30)
+
+# Membuat word map
+wordcloud = WordCloud(width = 800, height = 400, 
+                background_color ='white', 
+                stopwords = stop_words, 
+                min_font_size = 10).generate(" ".join(filtered_words))
+
+# Plot word map
+plt.figure(figsize = (8, 8), facecolor = None) 
+plt.imshow(wordcloud) 
+plt.axis("off") 
+plt.tight_layout(pad = 0) 
+plt.show()
+
+# Membuat horizontal bar chart
+words, frequencies = zip(*most_common_words)
+plt.figure(figsize=(10,8))
+plt.barh(words, frequencies)
+plt.xlabel('Frekuensi')
+plt.title('30 Kata Paling Banyak Dipakai')
+plt.show()
+```
+
+Hasilnya adalah sebagai berikut:
+
+<ImageWithCaption src={wordCloud} alt="Word Cloud" caption="Gambar 7. Word Cloud dari Teks Hasil Preprocessing" />
+<ImageWithCaption src={barChart} alt="Bar Chart" caption="Gambar 8. Bar Chart dari 30 Kata Paling Banyak Dipakai" />
+
+### Text Summarization
+
+
+</Steps>
