@@ -6,20 +6,7 @@ import BlurImage from "./components/BlurImage"
 
 const Logo = () => {
   const { theme } = useTheme()
-  const [logo, setLogo] = useState(() => {
-    if (typeof window !== "undefined") {
-      return localStorage.getItem("theme") === "light" ? logoLight : logoDark
-    }
-    return logoDark
-  })
-
-  useEffect(() => {
-    setLogo(theme === "light" ? logoLight : logoDark)
-    if (typeof window !== "undefined") {
-      localStorage.setItem("theme", theme)
-    }
-  }, [theme])
-
+  const logo = theme === "light" ? logoLight : logoDark
   return <BlurImage src={logo} alt="Logo" width={135} height={50} />
 }
 
