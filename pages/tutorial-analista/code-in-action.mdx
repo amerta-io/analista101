@@ -3,8 +3,7 @@
 import { Steps } from 'nextra/components'
 import ImageWithCaption from '../../components/ImageWithCaption'
 import wordCloud from '../../public/code/wordcloud.png'
-import barChart from '../../public/code/chart.png'
-import GistEmbed from '../../components/GistEmbed'
+import BarChart from "../../components/BarChart"
 
 <Steps>
 
@@ -13,8 +12,6 @@ import GistEmbed from '../../components/GistEmbed'
 Copy paste pada notepad lalu simpan. Upload ke folder content di Google Colab.
 
 ### Text Preprocessing
-
-<GistEmbed gistId="sendomoka/8437d9a49473a661c02e1276d6716278" />
 
 ```python copy
 import re
@@ -80,21 +77,29 @@ plt.show()
 word_counts = Counter(filtered_words)
 
 # Mengubah menjadi format token dan mengurutkan dari frekuensi terbanyak
-tokens = sorted([f"('{word}', {count})" for word, count in word_counts.items()], key=lambda x: int(x.split(',')[1][:-1]), reverse=True)[:50]
+tokens = sorted((f"('{word}', {count})" for word, count in word_counts.items()), key=lambda x: int(x.split(',')[1][:-1]), reverse=True)[:50]
+tokens_with_brackets = [f"[{tokens[0]}"] + tokens[1:-1] + [f"{tokens[-1]}]"]
+print('Token:')
+print(', '.join(tokens_with_brackets))
 
-# Menulis daftar token ke dalam file output
-with open(output_path, 'w', encoding='utf-8') as file:
-    file.write(', '.join(tokens))
+# Print kata
+words = [f"'{token.split(',')[0][2:-1]}'" for token in tokens]
+print(f"Kata:\n[{', '.join(words)}]")
+
+# Print angka
+counts = [token.split(',')[1][1:-1] for token in tokens]
+print(f"Angka:\n[{', '.join(counts)}]")
 ```
 
 Hasilnya adalah sebagai berikut:
 
 <ImageWithCaption src={wordCloud} alt="Word Cloud" caption="Gambar 7. Word Cloud dari Teks Hasil Preprocessing" />
-<ImageWithCaption src={barChart} alt="Bar Chart" caption="Gambar 8. Bar Chart dari 30 Kata Paling Banyak Dipakai" />
+
+<BarChart />
 
 ### Text Summarization
 
-Dilakukan secara manual, dengan cara mencocokkan kata-kata dari 50 token di```output.txt``` dengan jawaban asli responden.
+Dilakukan secara manual, dengan cara mencocokkan kata-kata dari 50 token dengan jawaban asli responden.
 
 ```plaintext
 [('fasilitas', 188), ('tidak', 174), ('kampus', 136), ('lebih', 123), ('ada', 120), ('diperbaiki', 109), ('kelas', 108), ('mahasiswa', 103), ('jalan', 103), ('bisa', 101), ('fakultas', 98), ('karena', 94), ('banyak', 86), ('unsoed', 84), ('perlu', 84), ('gedung', 80), ('kurang', 80), ('lagi', 76), ('ruang', 73), ('baik', 70), ('perbaikan', 70), ('semoga', 70), ('nyaman', 69), ('agar', 68), ('sudah', 67), ('saya', 65), ('tolong', 64), ('seperti', 63), ('rusak', 59), ('sehingga', 57), ('ac', 56), ('masih', 53), ('harus', 51), ('dapat', 50), ('kursi', 49), ('itu', 48), ('sangat', 47), ('belajar', 46), ('pada', 45), ('tempat', 45), ('wifi', 45), ('toilet', 44), ('adanya', 44), ('segera', 44), ('atau', 44), ('fisik', 42), ('dari', 42), ('belakang', 41), ('sebaiknya', 41), ('beberapa', 41)]
