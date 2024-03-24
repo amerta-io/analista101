@@ -1,3 +1,10 @@
-const PieChart = require('@mui/x-charts/PieChart').PieChart;
+import dynamic from "next/dynamic"
 
-export default PieChart;
+const PieChart = dynamic(
+  () => import("@mui/x-charts").then((module) => module.PieChart),
+  {
+    ssr: false,
+  }
+)
+
+export default PieChart

@@ -1,3 +1,10 @@
-const LineChart = require('@mui/x-charts/LineChart').LineChart;
+import dynamic from "next/dynamic"
 
-export default LineChart;
+const LineChart = dynamic(
+  () => import("@mui/x-charts").then((module) => module.LineChart),
+  {
+    ssr: false,
+  }
+)
+
+export default LineChart

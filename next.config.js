@@ -12,4 +12,21 @@ const withNextra = require('nextra')({
   }
 })
 
-module.exports = withNextra()
+module.exports = withNextra({
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.module.rules.push({
+        test: /\.m?js$/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+            plugins: ['@babel/plugin-transform-runtime']
+          },
+        },
+        include: /node_modules\/@mui\/x-charts/,
+      });
+    }
+    return config;
+  },
+})
