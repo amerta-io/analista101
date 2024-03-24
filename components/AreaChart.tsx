@@ -1,5 +1,5 @@
 import React from "react"
-import { LineChart } from "@mui/x-charts/LineChart"
+import LineChart from "./LineChartWrapper"
 import { ThemeProvider, styled } from "@mui/material/styles"
 import { lightTheme, darkTheme } from "./theme"
 import LightModeIcon from "@mui/icons-material/LightMode"

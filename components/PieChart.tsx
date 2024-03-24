@@ -1,5 +1,5 @@
 import React from "react"
-import { PieChart } from "@mui/x-charts/PieChart"
+import PieChart from "./PieChartWrapper"
 import { ThemeProvider } from "@mui/material/styles"
 import { lightTheme, darkTheme } from "./theme"
 import LightModeIcon from "@mui/icons-material/LightMode"
