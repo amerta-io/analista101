@@ -1,5 +1,5 @@
 import AreaChart from "../components/AreaChart"
-import PieChart from "../components/PieChart"
+import PieActiveArc from "../components/PieChart"
 
 # Overview
 
@@ -9,16 +9,18 @@ Insight Wordpress adalah analisis pengunjung website [dataatunsoed.bem-unsoed.co
 
 <AreaChart />
 
-## Pie Chart
+Data pada MonsterInsight dan disini terlihat beda pada simpulan angkanya, karena pada MonsterInsight rentang datanya dari 30 hari terakhir, sedangkan disini rentang datanya dari 1 bulan terakhir urut dari awal bulan hingga akhir bulan.
 
-<PieChart
+## Pie Chart (Persentase)
+
+<PieActiveArc
   data={[
-    { id: 0, value: 380, label: "Pengunjung Baru" },
-    { id: 1, value: 20, label: "Pengunjung Lama" },
+    { id: 0, value: 95, label: "Pengunjung Baru" },
+    { id: 1, value: 5, label: "Pengunjung Lama" },
   ]}
 />
 
-<PieChart
+<PieActiveArc
   data={[
     { id: 0, value: 272, label: "Mobile" },
     { id: 1, value: 124, label: "Desktop" },
