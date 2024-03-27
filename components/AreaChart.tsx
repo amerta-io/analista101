@@ -26,14 +26,14 @@ const allData = {
   "Maret 2024": {
     dataSession: [
       8, 34, 11, 21, 39, 20, 14, 22, 19, 15, 18, 28, 19, 11, 21, 16, 9, 6, 2,
-      11, 8, 18,
+      11, 8, 18, 10, 24, 21, 10
     ],
     dataPageview: [
       9, 53, 16, 24, 68, 24, 20, 36, 31, 24, 21, 52, 19, 18, 28, 32, 16, 8, 3,
-      18, 26, 34,
+      18, 26, 34, 19, 35, 61, 15
     ],
-    dataAvgSessionDuration: 12,
-    dataTotalUsers: 400,
+    dataAvgSessionDuration: 20,
+    dataTotalUsers: 419,
     xLabels: [
       "1 Mar",
       "2 Mar",
@@ -57,6 +57,10 @@ const allData = {
       "20 Mar",
       "21 Mar",
       "22 Mar",
+      "23 Mar",
+      "24 Mar",
+      "25 Mar",
+      "26 Mar",
     ],
   },
 }
@@ -71,7 +75,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function AreaChart() {
   const [isDarkMode, setIsDarkMode] = React.useState(false)
-  const [selectedPeriod, setSelectedPeriod] = React.useState("All")
+  const [selectedPeriod, setSelectedPeriod] = React.useState("Maret 2024")
   const toggleTheme = () => {
     setIsDarkMode((prev) => !prev)
   }
