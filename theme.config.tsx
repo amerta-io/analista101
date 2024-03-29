@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import { DocsThemeConfig, useTheme } from "nextra-theme-docs"
 import logoLight from "./public/assets/logo-light.png"
 import logoDark from "./public/assets/logo-dark.png"
 import BlurImage from "./components/BlurImage"
+import BannerContent from "./components/BannerContent"
 
 const Logo = () => {
   const { theme } = useTheme()
@@ -19,6 +20,10 @@ const config: DocsThemeConfig = {
     link: "https://discordapp.com/users/589304761921306638",
   },
   docsRepositoryBase: "https://github.com/amerta-io/analista101",
+  banner: {
+    text: <BannerContent />,
+    dismissible: false
+  },
 }
 
 export default config
