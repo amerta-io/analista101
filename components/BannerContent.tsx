@@ -11,7 +11,7 @@ const BannerContent: React.FC = () => {
       </div>
       <span>
         Analisis Survei Awal Periode 2024 -{" "}
-        <Countdown date="2024-03-31T00:00:00+07:00" />
+        <Countdown date="2024-03-31T24:00:00+07:00" />
       </span>
     </div>
   )
